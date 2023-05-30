@@ -1,0 +1,63 @@
+@import './components/assets/style/reset';
+@import './components/assets/style/vars';
+@import './components/assets/style/helpers';
+@import './components/assets/style/mixins';
+@import './components/assets/fonts/Inter/stylesheet';
+@import './components/assets/fonts/Montserrat/stylesheet';
+//@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=cyrillic-ext');
+
+body {
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  background: var(--bg);
+
+  color: var(--primary);
+  @include scrollbar(15px, var(--primary), var(--transperent), 5px, 2px);
+
+}
+
+a {
+  color: var(--info);
+}
+
+.root {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+// Animations
+.pulse {
+  @media (hover) {
+    &:hover, &:focus-visible {
+      animation: pulse 2s infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  0% {
+    opacity: 1;
+  }
+}
+
+// React Toastify
+.Toastify__toast {
+  font-family: inherit;
+
+  &--error {
+    background-color: var(--error);
+  }
+
+  &--success {
+    background-color: var(--success);
+  }
+}

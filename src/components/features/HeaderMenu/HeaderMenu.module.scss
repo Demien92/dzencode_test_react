@@ -1,0 +1,19 @@
+.head_menu{
+  display: flex;
+  flex-direction: column;
+  &__line{
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+  }
+  &__data{
+    margin-right: 10px;
+  }
+  &__icon{
+    margin-right: 5px;
+  }
+  &__time{
+
+  }
+
+}
