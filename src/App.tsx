@@ -1,9 +1,10 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import './App.scss';
-import { SideBar } from './components/layout/SideBar/SideBar';
+import { NavigationMenu } from './components/layout/NavigationMenu/NavigationMenu';
 import { Header } from './components/layout/Header/Header';
-import { Users } from './pages/Users';
+import { Orders } from './pages/Orders';
+import { Products } from './pages/Products';
+import './App.scss';
 
 export const App: React.FC = () => {
   return (
@@ -11,11 +12,12 @@ export const App: React.FC = () => {
       <main>
         <Header />
         <div className="wrapper">
-          <SideBar />
+          <NavigationMenu />
           <div className="wrapper__page">
             <Routes>
-              <Route path="/" element={<Navigate to="/users" />} />
-              <Route path="/users" element={<Users />} />
+              <Route path="/" element={<Navigate to="/orders" />} />
+              <Route path="/orders" element={<Orders />} />
+              <Route path="/products" element={<Products />} />
             </Routes>
           </div>
         </div>

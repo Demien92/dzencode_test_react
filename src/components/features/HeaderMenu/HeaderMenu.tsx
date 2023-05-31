@@ -10,7 +10,7 @@ export const HeaderMenu: React.FC = () => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
-    setInterval(() => setTime(new Date()), 1000);
+    setInterval(() => setTime(new Date()), 100);
   }, []);
 
   return (
@@ -25,10 +25,9 @@ export const HeaderMenu: React.FC = () => {
         <img
           className={`${styles.head_menu__icon}`}
           src={clock}
-          height="15px"
           alt="icon"
         />
-        <span className={`${styles.head_menu__time}`}>
+        <span>
           {moment(time.getTime()).format('LT')}
         </span>
       </div>

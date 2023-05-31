@@ -1,6 +1,9 @@
 .head_menu{
   display: flex;
   flex-direction: column;
+  img{
+    width: 15px;
+  }
   &__line{
     display: flex;
     font-size: 14px;
@@ -12,8 +15,4 @@
   &__icon{
     margin-right: 5px;
   }
-  &__time{
-
-  }
-
 }

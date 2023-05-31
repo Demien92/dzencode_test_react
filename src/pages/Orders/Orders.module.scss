@@ -1,0 +1,26 @@
+.orders{
+  width: 100%;
+  &__container{
+    display: flex;
+    gap: 30px;
+    >div{
+      width: 100%;
+    }
+  }
+  &__title_block{
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  &__add_btn{
+    transition: 0.3s;
+    border-radius: 50%;
+    &:hover{
+      box-shadow: 0 0 7px 0 var(--dark);
+    }
+    img{
+      width: 50px;
+    }
+  }
+}

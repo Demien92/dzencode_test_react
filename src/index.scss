@@ -61,3 +61,86 @@ a {
     background-color: var(--success);
   }
 }
+
+.dialog{
+  width: 100%;
+  &__name_item{
+    display: flex;
+    align-items: center;
+    grid-gap: 15px;
+    gap: 15px;
+    border-color: #d7dfe2;
+    border-style: solid;
+    border-width: 1px 0 0;
+    padding: 10px 15px;
+    font-weight: 500;
+  }
+  &__item{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    border-top:1px solid var(--grey);
+    padding: 10px 15px;
+  }
+  &__status{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--green);
+  }
+  &__icon{
+    width: 32px;
+  }
+  &__info{
+    display: flex;
+    flex-direction: column;
+  }
+  &__title{
+    font-size: 17px;
+  }
+  &__serial{
+    font-size: 14px;
+    color: var(--grey);
+  }
+  &__btn{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    gap: 25px;
+    padding: 15px;
+    background: var(--green);
+    button{
+      width: 200px;
+      height: 48px;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 26px;
+      text-transform: uppercase;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+      img{
+        margin-right: 10px;
+      }
+    }
+  }
+  &__delete{
+    color: var(--error);
+    background: var(--white);
+    img{
+      width: 15px;
+    }
+    &:hover{
+      border: 2px solid var(--error);
+    }
+  }
+  &__cancel{
+    color: var(--white);
+    &:hover{
+      border: 2px solid var(--white);
+    }
+  }
+}

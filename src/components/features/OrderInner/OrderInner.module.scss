@@ -1,0 +1,119 @@
+.order_inner{
+  display: flex;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+  background: var(--white);
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+  &__head{
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+  }
+  &__head_title{
+    margin-bottom: 12px;
+    font-size: 17px;
+  }
+  &__head_add{
+    display: flex;
+    align-items: center;
+    button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 32px;
+      width: 32px;
+      height: 32px;
+      color: var(--white);
+      background: var(--green);
+      border-radius: 50%;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      margin-right: 12px;
+      transition: all 0.3s;
+      &:hover{
+        box-shadow: 0 0 10px 0 var(--gray);
+      }
+    }
+    span{
+      color: var(--green);
+    }
+  }
+  &__close{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background: var(--white);
+    cursor: pointer;
+    border: 1px solid var(--gray);
+    transition: all 0.3s;
+    &:hover{
+      transform: rotate(90deg);
+    }
+    img{
+      width: 20px;
+    }
+  }
+  &__list_wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+  &__list_item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--gray);
+    padding: 12px 24px;
+  }
+  &__item_info{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  &__status{
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background:var(--green) ;
+  }
+  &__icon{
+    width: 32px;
+  }
+  &__title{
+    display: flex;
+    flex-direction: column;
+  }
+  &__type{
+  font-size: 14px;
+  }
+  &__serial{
+    font-size: 12px;
+    color: var(--grey);
+  }
+  &__delete_item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    &:hover{
+      border: 1px solid var(--gray);
+      box-shadow: 0 0 10px 0 var(--gray);
+    }
+  }
+}

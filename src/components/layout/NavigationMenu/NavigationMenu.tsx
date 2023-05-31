@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import avatar from '../../assets/images/avatar.png';
 import settings from '../../assets/images/settings.png';
-import styles from './SideBar.module.scss';
+import styles from './NavigationMenu.module.scss';
 
-export const SideBar: React.FC = () => {
+export const NavigationMenu: React.FC = () => {
   return (
     <div className={`${styles.side_bar}`}>
       <div className={`${styles.side_bar__avatar}`}>
@@ -22,11 +22,8 @@ export const SideBar: React.FC = () => {
         </span>
       </div>
       <div className={`${styles.side_bar__list}`}>
-        <NavLink to="/сoming">Приход</NavLink>
-        <NavLink to="/groups">Группы</NavLink>
-        <NavLink to="/products">Продукты</NavLink>
-        <NavLink to="/users">Пользователи</NavLink>
-        <NavLink to="/settings">Настройки</NavLink>
+        <NavLink to="/orders">Orders</NavLink>
+        <NavLink to="/products">Products</NavLink>
       </div>
     </div>
   );

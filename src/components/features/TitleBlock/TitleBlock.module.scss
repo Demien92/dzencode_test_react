@@ -1,0 +1,15 @@
+.title{
+  display: flex;
+  align-items: center;
+
+  gap : 5px;
+  &__name{
+    font-size: 22px;
+  }
+  &__line{
+    font-size: 25px;
+  }
+  &__count{
+    font-size: 27px;
+  }
+}
