@@ -21,18 +21,19 @@ export const ProductList: React.FC = () => {
     setIdToDelete(productId);
   };
 
-  const products = useSelector<RootState>(state => state.product) as [];
+  const products = useSelector((state: RootState) => state.product) as [];
+
   const [searchParams] = useSearchParams();
 
-  const type = searchParams.get('type') || '';
+  const productType = searchParams.get('type') || '';
   const specification = searchParams.get('specification') || '';
   const query = searchParams.get('query') || '';
 
   const filteredProducts = getFilteredProducts(
     products,
-    query,
-    type,
+    productType,
     specification,
+    query,
   );
 
   const itemToDelete = getCurrentProduct(filteredProducts, idToDelete);
@@ -43,7 +44,7 @@ export const ProductList: React.FC = () => {
         {filteredProducts.map(product => (
           <ProductItem
             key={product.id}
-            producty={product}
+            product={product}
             onDelete={() => handleDeleteProduct(product.id)}
           />
         ))}
@@ -92,6 +93,7 @@ export const ProductList: React.FC = () => {
               удалить
             </button>
           </div>
+
         </Dialog>
       )}
     </>

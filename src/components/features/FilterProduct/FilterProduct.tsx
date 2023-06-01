@@ -1,36 +1,35 @@
 import React, { ChangeEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import {
-  SearchTypes as types,
-  SearchSpecification as specification,
-} from '../../../types';
+import { SearchTypes as types, SearchSpecification as specification } from '../../../types';
 import styles from './FilterProduct.module.scss';
 
 export const FilterProduct: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleTypeFilter = (e: ChangeEvent<HTMLSelectElement>) => {
-    const { value } = e.target;
+    const { value } = e.currentTarget;
+    const newSearchParams = new URLSearchParams(searchParams);
 
     if (value) {
-      searchParams.set('type', value);
+      newSearchParams.set('type', value);
     } else {
-      searchParams.delete('type');
+      newSearchParams.delete('type');
     }
 
-    setSearchParams(searchParams);
+    setSearchParams(newSearchParams);
   };
 
   const handleSpecificationFilter = (e: ChangeEvent<HTMLSelectElement>) => {
-    const { value } = e.target;
+    const { value } = e.currentTarget;
+    const newSearchParams = new URLSearchParams(searchParams.toString());
 
     if (value) {
-      searchParams.set('specification', value);
+      newSearchParams.set('specification', value);
     } else {
-      searchParams.delete('specification');
+      newSearchParams.delete('specification');
     }
 
-    setSearchParams(searchParams);
+    setSearchParams(newSearchParams);
   };
 
   return (

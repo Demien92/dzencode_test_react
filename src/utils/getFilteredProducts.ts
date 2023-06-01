@@ -7,7 +7,7 @@ import {
 
 export const getFilteredProducts = (
   products: Product[],
-  type: string,
+  productType: string,
   specification: string,
   query: string,
 ): Product[] => {
@@ -15,7 +15,7 @@ export const getFilteredProducts = (
 
   const normalizedQuery = query.trim().toLowerCase();
 
-  switch (type) {
+  switch (productType) {
     case SearchTypes.Monitor:
       filterProducts = products.filter(product => product.type === 'Monitors');
       break;
@@ -25,7 +25,7 @@ export const getFilteredProducts = (
       break;
 
     case SearchTypes.Mobile:
-      filterProducts = products.filter(product => product.type === 'Mobile');
+      filterProducts = products.filter(product => product.type === 'Mobiles');
       break;
 
     default:

@@ -9,11 +9,11 @@ import delete_icon from '../../assets/images/delete.png';
 import styles from './ProductItem.module.scss';
 
 type Props = {
-  producty: Product;
+  product: Product;
   onDelete: () => void;
 };
 
-export const ProductItem: React.FC<Props> = ({ producty, onDelete }) => {
+export const ProductItem: React.FC<Props> = ({ product, onDelete }) => {
   const {
     id,
     title,
@@ -24,7 +24,7 @@ export const ProductItem: React.FC<Props> = ({ producty, onDelete }) => {
     date,
     specification,
     type,
-  } = producty;
+  } = product;
   const orders = useSelector<RootState>(state => state.order) as [];
 
   const isRepair = false;
