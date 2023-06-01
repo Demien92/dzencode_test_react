@@ -4,10 +4,6 @@
   &__select{
     display: flex;
     flex-direction: column;
-    >span{
-     color: var(--gray);
-      margin-bottom: 4px;
-    }
   }
   select{
     background: var(--white);

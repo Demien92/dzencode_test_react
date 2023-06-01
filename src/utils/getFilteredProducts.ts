@@ -2,13 +2,11 @@
 import {
   Product,
   SearchTypes,
-  SearchSpecification,
 } from '../types';
 
 export const getFilteredProducts = (
   products: Product[],
   productType: string,
-  specification: string,
   query: string,
 ): Product[] => {
   let filterProducts = products;
@@ -26,19 +24,6 @@ export const getFilteredProducts = (
 
     case SearchTypes.Mobile:
       filterProducts = products.filter(product => product.type === 'Mobiles');
-      break;
-
-    default:
-      break;
-  }
-
-  switch (specification) {
-    case SearchSpecification.Specification_1:
-      filterProducts = filterProducts.filter(product => product.specification === 'Specification 1');
-      break;
-
-    case SearchSpecification.Specification_2:
-      filterProducts = filterProducts.filter(product => product.specification === 'Specification 2');
       break;
 
     default:

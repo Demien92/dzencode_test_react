@@ -26,13 +26,11 @@ export const ProductList: React.FC = () => {
   const [searchParams] = useSearchParams();
 
   const productType = searchParams.get('type') || '';
-  const specification = searchParams.get('specification') || '';
   const query = searchParams.get('query') || '';
 
   const filteredProducts = getFilteredProducts(
     products,
     productType,
-    specification,
     query,
   );
 
@@ -93,7 +91,6 @@ export const ProductList: React.FC = () => {
               удалить
             </button>
           </div>
-
         </Dialog>
       )}
     </>
