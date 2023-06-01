@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import 'moment/locale/ru';
-import io from 'socket.io-client';
+import CounterComponent from '../CounterComponent/CounterComponent';
 import clock from '../../assets/images/clock.png';
 import styles from './TopMenu.module.scss';
 
@@ -9,31 +9,14 @@ moment.locale('ru');
 
 export const TopMenu: React.FC = () => {
   const [time, setTime] = useState(new Date());
-  const [sessionCount, setSessionCount] = useState(0);
 
   useEffect(() => {
     setInterval(() => setTime(new Date()), 100);
   }, []);
 
-  useEffect(() => {
-    const socket = io('https://Demien92.github.io/dzencode_test_react');
-
-    socket.on('sessionCount', (count: number) => {
-      setSessionCount(count);
-    });
-
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
-
   return (
     <div className={`${styles.head_menu}`}>
-      <h1>
-        Количество активных сессий:
-        {sessionCount}
-      </h1>
-
+      <CounterComponent />
       <div className={`${styles.head_menu__line}`}>
         <span>{moment().format('dddd')}</span>
       </div>
