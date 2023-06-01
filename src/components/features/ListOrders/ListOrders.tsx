@@ -27,6 +27,7 @@ export const ListOrders: React.FC<Props> = ({ orders }) => {
   return (
     <>
       <div className={`${styles.ordersList}`}>
+
         {orders.map(order => (
           <OrderItem
             key={order.id}
@@ -34,6 +35,7 @@ export const ListOrders: React.FC<Props> = ({ orders }) => {
             onDelete={() => handleDeleteOrder(order.id)}
           />
         ))}
+
       </div>
       {dialog && (
         <Dialog onClose={() => setDialog(false)}>

@@ -5,7 +5,7 @@ const CounterComponent: React.FC = () => {
   const [sessionCount, setSessionCount] = useState(0);
 
   useEffect(() => {
-    const socket = io('https://demien92.github.io/dzencode_test_react/#/orders');
+    const socket = io('https://demien92.github.io/dzencode_test_react');
 
     socket.on('sessionCount', (count: number) => {
       setSessionCount(count);
