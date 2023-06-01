@@ -24,8 +24,8 @@ export const getFilteredProducts = (
       filterProducts = products.filter(product => product.type === 'Laptops');
       break;
 
-    case SearchTypes.Printer:
-      filterProducts = products.filter(product => product.type === 'Printers');
+    case SearchTypes.Mobile:
+      filterProducts = products.filter(product => product.type === 'Mobile');
       break;
 
     default:
@@ -39,10 +39,6 @@ export const getFilteredProducts = (
 
     case SearchSpecification.Specification_2:
       filterProducts = filterProducts.filter(product => product.specification === 'Specification 2');
-      break;
-
-    case SearchSpecification.Specification_3:
-      filterProducts = filterProducts.filter(product => product.specification === 'Specification3');
       break;
 
     default:

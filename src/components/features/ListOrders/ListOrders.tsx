@@ -37,12 +37,12 @@ export const ListOrders: React.FC<Props> = ({ orders }) => {
       </div>
       {dialog && (
         <Dialog onClose={() => setDialog(false)}>
-          <div className={`${styles.dialog} dialog`}>
-            <div className={`${styles.dialog__name_item} dialog__name_item`}>{orderToDelete?.title}</div>
+          <div className="dialog">
+            <div className="dialog__name_item">{orderToDelete?.title}</div>
           </div>
-          <div className={`${styles.dialog__btn} dialog__btn`}>
+          <div className="dialog__btn">
             <button
-              className={`${styles.dialog__cancel} dialog__cancel`}
+              className="dialog__cancel"
               type="button"
               onClick={() => {
                 setDialog(false);
@@ -51,7 +51,7 @@ export const ListOrders: React.FC<Props> = ({ orders }) => {
               отменить
             </button>
             <button
-              className={`${styles.dialog__delete} dialog__delete`}
+              className="dialog__delete"
               type="button"
               onClick={() => {
                 setDialog(false);
@@ -60,7 +60,6 @@ export const ListOrders: React.FC<Props> = ({ orders }) => {
             >
               <img
                 src={delete_icon}
-                height="15px"
                 alt="delete_icon"
               />
               {' '}

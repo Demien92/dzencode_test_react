@@ -1,11 +1,13 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { OrdersToProducts } from '../../../types';
 import deleteIcon from '../../assets/images/delete.png';
 import menu_icon from '../../assets/images/menu.png';
-import styles from './OrderItem.module.scss';
+import arrow from '../../assets/images/arrow.webp';
 import { actions as selectedOrderActions } from '../../../Redux/reducers/selectedOrderReduser';
+import { RootState } from '../../../Redux/store';
+import styles from './OrderItem.module.scss';
 
 type Props = {
   order: OrdersToProducts;
@@ -19,6 +21,9 @@ export const OrderItem: React.FC<Props> = ({ order, onDelete }) => {
   const handleMenu = () => {
     dispatch(selectedOrderActions.select(id));
   };
+
+  const selectedOrder = useSelector<RootState>(state => state.selectedOrder);
+  const isSelectedOrder = selectedOrder === order?.id;
 
   return (
     <div className={`${styles.item}`}>
@@ -48,17 +53,7 @@ export const OrderItem: React.FC<Props> = ({ order, onDelete }) => {
         <p>250 000.50UAH</p>
       </div>
       <div className={`${styles.item__delete} w-10`}>
-        <button
-          type="button"
-          className="order-field__delete-btn"
-          onClick={onDelete}
-        >
-          <img
-            src={deleteIcon}
-            width="17px"
-            alt="delete icon"
-          />
-        </button>
+        {!isSelectedOrder ? <button type="button" onClick={onDelete}><img src={deleteIcon} alt="deleteIcon" /></button> : <img src={arrow} alt="arrow" />}
       </div>
     </div>
   );

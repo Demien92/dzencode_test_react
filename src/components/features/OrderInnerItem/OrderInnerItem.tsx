@@ -6,6 +6,7 @@ import { Dialog } from '../Dialog';
 import monitor from '../../assets/images/monitor.png';
 import deleteIcon from '../../assets/images/delete.png';
 import styles from './OrderInnerItem.module.scss';
+import delete_icon from '../../assets/images/delete.webp';
 
 type Props = {
   product: Product;
@@ -15,80 +16,65 @@ export const OrderInnerItem: React.FC<Props> = ({ product }) => {
   const [dialog, setDialog] = useState(false);
   const dispatch = useDispatch();
 
-  const isRepair = product.isNew === 1;
-
   return (
     <>
-      <div className={`${styles.order_inner}`} key={product.id}>
-        <div className="list-item__container">
-          <div className="list-item__status__icon"></div>
-          <div className="list-item__image">
+      <div className={`${styles.order_inner__list_item}`} key={product.id}>
+        <div className={`${styles.order_inner__item_info}`}>
+          <div className={`${styles.order_inner__status}`}></div>
+          <div className={`${styles.order_inner__icon}`}>
             <img
               src={monitor}
-              width="30px"
-              alt="group_image"
+              alt="icon"
             />
           </div>
-          <div className="list-item__title">
-            <h3 className="list-item__text">
-              {product.type}
-            </h3>
-            <span className="list-item__serialNumber">
-              {product.serialNumber}
-            </span>
+          <div className={`${styles.order_inner__title}`}>
+            <span className={`${styles.order_inner__type}`}>{product.type}</span>
+            <span className={`${styles.order_inner__serial}`}>{product.serialNumber}</span>
           </div>
-        </div>
-        <div className="list-item__status">
-          {isRepair
-            ? 'In service'
-            : 'Free'}
+          <div>
+            {product.isNew === 1 ? 'free' : 'In service'}
+          </div>
         </div>
         <button
           type="button"
-          className="delete-button"
+          className={`${styles.order_inner__delete_item}`}
           onClick={() => setDialog(true)}
         >
           <img
             src={deleteIcon}
-            height="15px"
             alt="delete icon"
           />
         </button>
       </div>
       {dialog && (
         <Dialog onClose={() => setDialog(false)}>
-          <div className="modal__content-wrapper">
-            <div className="list-item__modal">
-              <div className="list-item__status__icon"></div>
-              <div className="list-item__image">
+          <div className="dialog">
+            <div className="dialog__item">
+              <div className="dialog__status"></div>
+              <div className="dialog__icon">
                 <img
                   src={monitor}
-                  width="30px"
-                  alt="group_image"
+                  alt="monitor"
                 />
               </div>
-              <div className="list-item__title">
-                <h3 className="list-item__title-text">
-                  {product.type}
-                </h3>
-                <span className="list-item__serialNumber">
-                  {product.serialNumber}
-                </span>
+              <div className="dialog__info">
+                <span className="dialog__title">{product.title}</span>
+                <span className="dialog__serial">{product.serialNumber}</span>
               </div>
             </div>
           </div>
-          <div className="modal__button-container">
+          <div className="dialog__btn">
             <button
-              className="modal__button modal__button--cancel"
+              className="dialog__cancel"
               type="button"
               onClick={() => {
                 setDialog(false);
               }}
             >
-              cancel
+              отменить
             </button>
             <button
-              className="modal__button modal__button--delete"
+              className="dialog__delete"
               type="button"
               onClick={() => {
                 setDialog(false);
@@ -96,12 +82,10 @@ export const OrderInnerItem: React.FC<Props> = ({ product }) => {
               }}
             >
               <img
-                src={deleteIcon}
-                height="13px"
-                alt="delete icon"
+                src={delete_icon}
+                alt="delete_icon"
               />
-              {' '}
-              delete
+              удалить
             </button>
           </div>
         </Dialog>

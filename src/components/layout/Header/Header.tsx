@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { HeaderMenu } from '../../features/HeaderMenu';
+import { TopMenu } from '../../features/TopMenu';
 import logo from '../../assets/images/logo.png';
 import styles from './Header.module.scss';
 
@@ -34,7 +34,7 @@ export const Header: React.FC = () => {
             onChange={handleQueryFilter}
           />
         </div>
-        <HeaderMenu />
+        <TopMenu />
       </div>
     </header>
   );

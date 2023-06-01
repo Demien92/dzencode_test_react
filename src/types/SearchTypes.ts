@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-shadow
 export enum SearchTypes {
-  Monitor = 'Monitors',
-  Printer = 'Printers',
-  Laptop = 'Laptops',
+  Monitor = 'monitors',
+  Mobile = 'mobile',
+  Laptop = 'laptops',
 }

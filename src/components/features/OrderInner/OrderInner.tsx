@@ -5,8 +5,6 @@ import { RootState } from '../../../Redux/store';
 import { OrdersToProducts } from '../../../types';
 import { OrderInnerItem } from '../OrderInnerItem';
 import close_icon from '../../assets/images/close-icon.png';
-import monitor from '../../assets/images/monitor.png';
-import deleteIcon from '../../assets/images/delete.png';
 import styles from './OrderInner.module.scss';
 
 type Props = {
@@ -43,47 +41,12 @@ export const OrderInner: React.FC<Props> = ({ order }) => {
           <span>Add product</span>
         </div>
       </div>
-      <div className={`${styles.order_inner__list_wrapper}`}>
-        {currentProducts?.map(product => (
-          <div className={`${styles.order_inner__list_item}`} key={product.id}>
-            <div className={`${styles.order_inner__item_info}`}>
-              <div className={`${styles.order_inner__status}`}></div>
-              <div className={`${styles.order_inner__icon}`}>
-                <img
-                  src={monitor}
-                  alt="icon"
-                />
-              </div>
-              <div className={`${styles.order_inner__title}`}>
-                <span className={`${styles.order_inner__type}`}>{product.type}</span>
-                <span className={`${styles.order_inner__serial}`}>{product.serialNumber}</span>
-              </div>
-              <div>
-                {product.isNew === 1 ? 'free' : 'In service'}
-              </div>
-            </div>
-            <button
-              type="button"
-              className={`${styles.order_inner__delete_item}`}
-            >
-              <img
-                src={deleteIcon}
-                height="15px"
-                alt="delete icon"
-              />
-            </button>
-          </div>
-        ))}
-      </div>
-
-      <div className="modal-group__list">
-        {currentProducts?.map(product => (
-          <OrderInnerItem
-            key={product.id}
-            product={product}
-          />
-        ))}
-      </div>
+      {currentProducts?.map(product => (
+        <OrderInnerItem
+          key={product.id}
+          product={product}
+        />
+      ))}
       <button
         className={`${styles.order_inner__close}`}
         type="button"

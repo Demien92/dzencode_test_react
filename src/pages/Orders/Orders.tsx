@@ -18,8 +18,6 @@ export const Orders: React.FC = () => {
   const ordersToProducts = getOrdersToProducts(orders, products);
   const currentOrder = ordersToProducts.find(order => order.id === selectedOrder);
 
-  console.log(currentOrder);
-
   return (
     <div className={`${styles.orders}`}>
       <div className={`${styles.orders__title_block}`}>

@@ -92,7 +92,6 @@ export const ProductList: React.FC = () => {
               удалить
             </button>
           </div>
-
         </Dialog>
       )}
     </>
