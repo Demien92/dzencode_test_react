@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 
-const CounterComponent: React.FC = () => {
+const CounterComponent = () => {
   const [sessionCount, setSessionCount] = useState(0);
 
   useEffect(() => {
-    const socket = io('https://demien92.github.io/dzencode_test_react');
+    const socket = io('http://localhost:4000'); // Замените URL на ваш серверный URL
 
-    socket.on('sessionCount', (count: number) => {
+    socket.on('sessionCount', (count) => {
       setSessionCount(count);
     });
 
@@ -20,7 +20,6 @@ const CounterComponent: React.FC = () => {
     <div>
       <h1>
         Количество активных сессий:
-        {' '}
         {sessionCount}
       </h1>
     </div>
