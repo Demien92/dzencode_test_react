@@ -33,7 +33,7 @@ export const Products: React.FC = () => {
       serialNumber: Math.floor(Math.random() * 10000),
       isNew: Math.random() > 0.5 ? 1 : 0,
       photo: 'pathToFile.jpg',
-      title: 'Product 1',
+      title: `Product ${products.length + 1}`,
       type: randomType,
       specification: randomSpecification,
       guarantee: {

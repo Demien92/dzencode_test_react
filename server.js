@@ -9,46 +9,48 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
-// Обработка событий от клиентов
+// Обробка подій від клієнтів
 io.on('connection', (socket) => {
-  console.log('Установлено новое соединение с клиентом');
+  console.log('Установлено нове з’єднання з клієнтом');
 
-  // Обработка событий от клиента
+  // Обробка подій від клієнта
   socket.on('sessionCount', (count) => {
-    console.log('Получено событие sessionCount:', count);
+    console.log('Получено подію sessionCount:', count);
 
-    // Логика обработки события и отправка обновленного значения счетчика
+    // Логіка обробки події та відправлення оновленого значення лічильника
     const updatedCount = count + 1;
-    socket.emit('sessionCountUpdated', updatedCount);
+    io.emit('sessionCountUpdated', updatedCount);
   });
 
-  // Обработка отключения клиента
+  // Обробка відключення клієнта
   socket.on('disconnect', () => {
-    console.log('Соединение с клиентом закрыто');
+    console.log('З’єднання з клієнтом закрите');
   });
 });
 
-// Запуск сервера
-const port = 4000;
-server.listen(port, () => {
-  console.log(`Сервер Socket.IO запущен на порту ${port}`);
-});
-
-// Настройка прокси-сервера для обхода CORS
+// Налаштування проксі-сервера для обходу CORS
 app.use(
-    '/api', // Задайте путь, для которого будет использоваться прокси
+    '/api',
     createProxyMiddleware({
-      target: 'http://localhost:4000', // Задайте URL вашего сервера, к которому нужно обратиться
+      target: 'http://localhost:4000',
       changeOrigin: true,
     })
 );
 
-// Добавьте middleware для обработки заголовков CORS
+// Додавання middleware для обробки заголовків CORS
 app.use(cors());
 
-// Задайте правильный путь к вашей точке входа
-const publicPath = path.join(__dirname, 'dzencode_test_react', 'public');
-app.use(express.static(publicPath));
+// Встановлення шляху до папки зі статичними файлами React
+const buildPath = path.join(__dirname, 'build');
+app.use(express.static(buildPath));
+
+// Маршрут для відправки статичного файлу index.html
 app.get('/', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
+  res.sendFile(path.join(buildPath, 'index.html'));
+});
+
+// Запуск сервера
+const port = process.env.PORT || 4000;
+server.listen(port, () => {
+  console.log(`Сервер Socket.IO запущено на порту ${port}`);
 });

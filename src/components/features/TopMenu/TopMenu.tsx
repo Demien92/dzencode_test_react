@@ -3,6 +3,7 @@ import moment from 'moment';
 import 'moment/locale/ru';
 import clock from '../../assets/images/clock.png';
 import styles from './TopMenu.module.scss';
+import CounterComponent from '../CounterComponent/CounterComponent';
 
 moment.locale('ru');
 
@@ -15,6 +16,7 @@ export const TopMenu: React.FC = () => {
 
   return (
     <div className={`${styles.head_menu}`}>
+      <CounterComponent />
       <div className={`${styles.head_menu__line}`}>
         <span>{moment().format('dddd')}</span>
       </div>

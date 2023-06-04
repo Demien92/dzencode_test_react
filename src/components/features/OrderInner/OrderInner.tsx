@@ -51,7 +51,7 @@ export const OrderInner: React.FC<Props> = ({ orderProduct }) => {
       serialNumber: Math.floor(Math.random() * 10000),
       isNew: Math.random() > 0.5 ? 1 : 0,
       photo: 'pathToFile.jpg',
-      title: 'Product 1',
+      title: `Product ${currentProducts?.length ? currentProducts.length + 1 : 1}`,
       type: randomType,
       specification: randomSpecification,
       guarantee: {
