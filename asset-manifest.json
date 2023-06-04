@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/dzencode_test_react/static/css/main.accebb33.chunk.css",
-    "main.js": "/dzencode_test_react/static/js/main.44b24224.chunk.js",
-    "main.js.map": "/dzencode_test_react/static/js/main.44b24224.chunk.js.map",
+    "main.js": "/dzencode_test_react/static/js/main.402a48bb.chunk.js",
+    "main.js.map": "/dzencode_test_react/static/js/main.402a48bb.chunk.js.map",
     "runtime-main.js": "/dzencode_test_react/static/js/runtime-main.04951143.js",
     "runtime-main.js.map": "/dzencode_test_react/static/js/runtime-main.04951143.js.map",
     "static/js/2.91ae7963.chunk.js": "/dzencode_test_react/static/js/2.91ae7963.chunk.js",
@@ -22,6 +22,6 @@
     "static/js/runtime-main.04951143.js",
     "static/js/2.91ae7963.chunk.js",
     "static/css/main.accebb33.chunk.css",
-    "static/js/main.44b24224.chunk.js"
+    "static/js/main.402a48bb.chunk.js"
   ]
 }
