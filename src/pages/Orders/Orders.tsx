@@ -41,7 +41,7 @@ export const Orders: React.FC = () => {
       </div>
       <div className={`${styles.orders__container}`}>
         <ListOrders orders={OrdersToProducts} />
-        {selectedOrder && <OrderInner order={currentOrder} /> }
+        {selectedOrder && <OrderInner orderProduct={currentOrder} /> }
       </div>
     </div>
   );
